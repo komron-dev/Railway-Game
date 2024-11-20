@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" defer src="script.js"></script>
+    <script type="module" defer src="data.js"></script>
+</head>
+<body>
+
+<div id="menu-screen">
+    <h1>RAILWAYS</h1>
+    <label for="player-name">Who are you?</label>
+    <input type="text" id="player-name" placeholder="Enter your name" required>
+    <h2>Set the Difficulty!</h2>
+    <div id="difficulty-selection">
+        <button id="easy" class="difficulty-btn" data-difficulty="easy">5 x 5 (Easy)</button>
+        <button id="hard" class="difficulty-btn" data-difficulty="hard">7 x 7 (Hard)</button>
+    </div>
+    <button id="rules-btn" class="menu-btn">Rules</button>
+    <button id="start-game-btn" class="menu-btn">Start Game</button>
+    <div id="message" class="message"></div>
+</div>
+
+<div id="game-screen" style="display: none;">
+    <h1>RAILWAYS</h1>
+    <div id="game-container">
+        <div id="game-info">
+            <p>Route Designer: <span id="player-display"></span></p>
+            <p>Elapsed Time: <span id="timer"></span></p>
+        </div>
+        <div id="game-grid" class="grid"></div>
+    </div>
+    <button id="back-to-menu" class="menu-btn">Back to Menu</button>
+</div>
+
+<div id="rules-modal" class="modal" style="display: none;">
+    <div class="modal-header">
+        <span class="close-btn" id="close-modal">&times;</span>
+    </div>
+    <div class="modal-content">
+        <h2>Game Description</h2>
+        <h3>Overview</h3>
+        <p>The game is played on a square grid where the goal is to create a continuous circular railway line.<br>
+        The railway line cannot cross itself or pass through a cell more than once. <br>
+            To select railway tiles, click on a cell in the game grid.
+        </p>
+        <div class="modal-image-container">
+            <img src="pics/screens/solution.png" alt="Game overview" class="main-image">
+        </div>
+
+        <h3>Different Types of Terrain Tiles:</h3>
+        <div class="tile-info">
+            <div class="t">
+                <img src="pics/tiles/empty.png" alt="Tile 1" class="tile-image">
+                <p class="tile-description">In this cell, the railway can continue in any of the three directions besides the entry direction.</p>
+            </div>
+            <div class="t">
+                <img src="pics/tiles/bridge.png" alt="Tile 2" class="tile-image">
+                <p class="tile-description">On this tile, the railway can only be built in the straight direction defined by the bridge.</p>
+            </div>
+            <div class="t">
+                <img src="pics/tiles/mountain.png" alt="Tile 3" class="tile-image">
+                <p class="tile-description">These tiles have rocks that block two adjacent exits, so the train can only continue by turning 90°.</p>
+            </div>
+            <div class="t">
+                <img src="pics/tiles/oasis.png" alt="Tile 4" class="tile-image">
+                <p class="tile-description">No railway can be built on this tile.</p>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<div id="palette" style="display: none;">
+    <h3>Select a Railway Tile</h3>
+    <button id="close-palette" class="menu-btn">Close</button>
+</div>
+
+<div id="leaderboard" style="display: none;"></div>
+</body>
+</html>
